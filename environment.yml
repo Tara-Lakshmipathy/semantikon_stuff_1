@@ -1,0 +1,11 @@
+channels:
+- conda-forge
+dependencies:
+- pyironflow
+- pyiron_workflow =0.11.2
+- pyiron_atomistics
+- pyiron-data
+- lammps
+- nglview
+- jupyterlab
+- pybis
