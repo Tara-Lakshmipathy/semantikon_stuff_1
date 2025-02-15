@@ -5,7 +5,7 @@ from semantics import onto
 
 @as_function_node("result")
 def RestrictedNode(
-    inp1: u(object, class_restrictions=[("crystal_defect", "type", "all", onto.PointDefect)], value_restrictions=[]), 
+    inp1: u(object, class_restrictions=[("crystal_defect", "type", "any", onto.Vacancy)], value_restrictions=[]), 
     inp2: u(object, value_restrictions=[("unit_cell", "bravais_lattice", "bcc")])
 ):
 
@@ -13,9 +13,10 @@ def RestrictedNode(
     check_2 = check_second_restriction(inp2)
 
     if check_1 == True and check_2 == True:
-        final_check = "Overall result = Pass!"
+        print("")
+        final_check = ("You may pass.")
     else:
-        final_check = "Overall result = Fail!"
+        raise ValueError("YOU SHALL NOT PASS!!!")
     
     return final_check
 
