@@ -82,28 +82,28 @@
           },
           {
             "@type": "ex.CrystalDefect",
-            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__crystal_defect",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__crystal_defect",
             "label": "crystal_defect",
             "has_part": []
           },
           {
             "@type": "ex.AnalysisProcess",
-            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__analysis",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis",
             "label": "analysis",
             "has_part": [
               {
                 "@type": "ex.SpaceGroupAnalysisAlgorithm",
-                "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0",
+                "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0",
                 "label": "0",
                 "has_part": [
                   {"@type":"ex:SpaceGroup",
-                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_space_group",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_space_group",
                    "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
                   {"@type":"ex:AnalysisSoftware",
-                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_analysis_library",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_analysis_library",
                    "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
                   {"@type":"ex:InputParameter",
-                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_analysis_precision",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_analysis_precision",
                    "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
                 ]
               }
