@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "precedes": "http://example.org/Precedes",
+    "has_input": "http://example.org/hasInput",
+    "has_output": "http://example.org/hasOutput",
+    "executes": "http://example.org/Executes",
+    "has_units": "http://qudt.org/schema/qudt/Unit",
+    "has_class": "http://example.org/hasPythonClass",
+    "has_input_port": "http://example.org/hasInputPort",
+    "has_output_port": "http://example.org/hasOutputPort",
+    "has_object": "http://example.org/hasPythonObject",
+    "has_software": "http://example.org/usesSoftware",
+    "has_part": "http://example.org/hasPart",
+    "input_of": "http://example.org/inputOf"
+  },
+  
+  "@type":"ex:StructureGenerationProcess",
+  "@id":"http://StructureGenerationProcess",
+  "has_input": [
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__pr_name","rdfs:label":"pr_name","rdf:value":"cdict","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__element", "rdfs:label":"element", "rdf:value":"Fe","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__bravais_lattice",
+     "rdfs:label":"bravais_lattice","rdf:value":"bcc","has_units": "None"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__a","rdfs:label":"a","rdf:value":"2.87","has_units":"ANGSTROM"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__c","rdfs:label":"c","rdf:value":"None","has_units":"ANGSTROM"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__cubic","rdfs:label":"cubic","value":"True","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_CreateStructure",
+    "label": "CreateStructure",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateStructure","label":"CreateStructure"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__pr_name","has_object": {"@id": "http://UserInput__pr_name"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__element", "has_object": {"@id": "http://UserInput__element"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__bravais_lattice","has_object": {"@id": "http://UserInput__bravais_lattice"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__a","has_object": {"@id": "http://UserInput__a"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__c","has_object": {"@id": "http://UserInput__c"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__cubic","has_object": {"@id": "http://UserInput__cubic"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_CreateStructure__structure_dataclass",
+       "has_object": {"@id": "http://GeneratedOutput__CreateStructure__structure_dataclass"}}
+    ]
+  },
+  "has_output": [
+    {
+      "@type": "ex.AtomisticSample",
+      "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass",
+      "label": "structure_dataclass",
+      "has_part": [    
+        
+      ],
+      "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__x_repeat", "rdfs:label":"x_repeat", "rdf:value":3,"has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__y_repeat", "rdfs:label":"y_repeat", "rdf:value":3,"has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__z_repeat", "rdfs:label":"z_repeat", "rdf:value":3,"has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_RepeatStructure",
+    "label": "RepeatStructure",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.RepeatStructure","label":"RepeatStructure"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://RepeatStructure__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__CreateStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__x_repeat", "has_object": {"@id": "http://UserInput__x_repeat"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__y_repeat", "has_object": {"@id": "http://UserInput__y_repeat"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__z_repeat", "has_object": {"@id": "http://UserInput__z_repeat"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_RepeatStructure__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          
+        ],
+        "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess0",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__vacancy_indices", "rdfs:label":"vacancy_indices", 
+     "rdf:value":"0 3","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_CreateVacancy",
+    "label": "CreateVacancy",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateVacancy","label":"CreateVacancy"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://CreateVacancy__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateVacancy__vacancy_indices", "has_object": {"@id": "http://UserInput__vacancy_indices"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_CreateVacancy__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          
+        ],
+        "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess1",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species", "rdfs:label":"substitute_species", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom", "rdfs:label":"substitute_magmom", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices", "rdfs:label":"subs_indices", 
+     "rdf:value":"5 10","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_SubstituteImpurity",
+    "label": "SubstituteImpurity",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://SubstituteImpurity__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__substitute_species", 
+       "has_object": {"@id": "http://UserInput__substitute_species"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__subs_indices", 
+       "has_object": {"@id": "http://UserInput__substitute_magmom"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__substitute_magmom", 
+       "has_object": {"@id": "http://UserInput__subs_indices"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_SubstituteImpurity__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          
+        ]
+      }
+    ]
+          }
+        ]
+      }
+    ],
+          "precedes": {"@id":"http://StructureManipulationProcess1"}
+          },
+          {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess2",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species0", "rdfs:label":"substitute_species", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom0", "rdfs:label":"substitute_magmom", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices0", "rdfs:label":"subs_indices", 
+     "rdf:value":"5 10","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_SubstituteImpurity0",
+    "label": "SubstituteImpurity0",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://SubstituteImpurity0__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__substitute_species", 
+       "has_object": {"@id": "http://UserInput__substitute_species0"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__subs_indices", 
+       "has_object": {"@id": "http://UserInput__substitute_magmom0"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__substitute_magmom", 
+       "has_object": {"@id": "http://UserInput__subs_indices0"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_SubstituteImpurity0__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          
+        ]
+      }
+    ]
+          }
+        ]
+      }
+    ],
+          "precedes": [{"@id":"http://StructureManipulationProcess0"},{"@id":"http://StructureManipulationProcess2"}]
+          }
+        ]
+      }
+    ],
+  "precedes": {"@id":"http://StructureManipulationProcess"}
+}
