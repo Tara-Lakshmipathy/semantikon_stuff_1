@@ -49,9 +49,6 @@
       "@type": "ex.AtomisticSample",
       "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass",
       "label": "structure_dataclass",
-      "has_part": [    
-        
-      ],
       "input_of": [
         {
   "@type":"ex:StructureManipulationProcess",
@@ -85,9 +82,6 @@
       "@type": "ex.AtomisticSample",
         "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass",
         "label": "structure_dataclass",
-        "has_part": [
-          
-        ],
         "input_of": [
         {
   "@type":"ex:StructureManipulationProcess",
@@ -118,9 +112,6 @@
       "@type": "ex.AtomisticSample",
         "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass",
         "label": "structure_dataclass",
-        "has_part": [
-          
-        ],
         "input_of": [
         {
   "@type":"ex:StructureManipulationProcess",
@@ -159,10 +150,7 @@
       {
       "@type": "ex.AtomisticSample",
         "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass",
-        "label": "structure_dataclass",
-        "has_part": [
-          
-        ]
+        "label": "structure_dataclass"
       }
     ]
           }
@@ -208,10 +196,7 @@
       {
       "@type": "ex.AtomisticSample",
         "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass",
-        "label": "structure_dataclass",
-        "has_part": [
-          
-        ]
+        "label": "structure_dataclass"
       }
     ]
           }
