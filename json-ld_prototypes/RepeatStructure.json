@@ -77,7 +77,7 @@
                "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
               {"@type":"ex:LatticeVolume",
                "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__bravais_lattice",
-               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":null}
             ]
           },
           {
