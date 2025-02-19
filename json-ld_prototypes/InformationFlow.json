@@ -68,6 +68,17 @@
         {
   "@type":"ex:StructureManipulationProcess",
   "@id":"http://StructureManipulationProcess",
+  "has_execution_details": {
+    "@type": "rdf:Bag",
+    "has_item": [
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":null},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":null},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":null}
+    ]
+  },
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateStructure__structure_dataclass",
      "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
@@ -102,6 +113,17 @@
         {
   "@type":"ex:StructureManipulationProcess",
   "@id":"http://StructureManipulationProcess0",
+  "has_execution_details": {
+    "@type": "rdf:Bag",
+    "has_item": [
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":null},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":null},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":null}
+    ]
+  },
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
      "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
@@ -133,6 +155,17 @@
         {
   "@type":"ex:StructureManipulationProcess",
   "@id":"http://StructureManipulationProcess1",
+  "has_execution_details": {
+    "@type": "rdf:Bag",
+    "has_item": [
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":null},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":null},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":null}
+    ]
+  },
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass",
      "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
@@ -166,7 +199,7 @@
   },
     "has_output": [
       {
-      "@type": "ex.AtomisticSample",
+        "@type": "ex:AtomisticSample",
         "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass",
         "label": "structure_dataclass"
       }
@@ -180,6 +213,17 @@
           {
   "@type":"ex:StructureManipulationProcess",
   "@id":"http://StructureManipulationProcess2",
+  "has_execution_details": {
+    "@type": "rdf:Bag",
+    "has_item": [
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":null},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":null},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":null}
+    ]
+  },
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
      "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
@@ -213,7 +257,7 @@
   },
     "has_output": [
       {
-      "@type": "ex.AtomisticSample",
+        "@type": "ex:AtomisticSample",
         "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass",
         "label": "structure_dataclass"
       }
