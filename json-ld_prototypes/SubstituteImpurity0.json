@@ -112,7 +112,7 @@
             "label": "analysis",
             "has_part": [
               {
-                "@type": "ex.SpaceGroupAnalysisAlgorithm",
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
                 "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0",
                 "label": "0",
                 "has_part": [
