@@ -43,10 +43,10 @@
             "has_part": [
               {"@type":"ex:Atoms",
                "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__chemical_species__atoms",
-               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":"None"},
+               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":null},
               {"@type":"ex:Molecules",
                "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__chemical_species__molecules",
-               "rdfs:label":"molecules","value":"None","has_units":"None"}
+               "rdfs:label":"molecules","value":null,"has_units":null}
             ]
           },
           {
@@ -77,7 +77,7 @@
                "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
               {"@type":"ex:LatticeVolume",
                "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__bravais_lattice",
-               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":null}
             ]
           },
           {
@@ -92,16 +92,16 @@
                 "has_part": [
                   {"@type":"ex:SubstitutionalImpurity",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_count",
-                   "rdfs:label":"substitution_count","value":2,"has_units":"None"},
+                   "rdfs:label":"substitution_count","value":2,"has_units":null},
                   {"@type":"ex:Position",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_positions",
-                   "rdfs:label":"substitution_positions","value":"[array([1.435, 1.435, 7.175]), array([0.  , 2.87, 5.74])]","has_units":"None"},
+                   "rdfs:label":"substitution_positions","value":"[array([1.435, 1.435, 7.175]), array([0.  , 2.87, 5.74])]","has_units":null},
                   {"@type":"ex:Atom",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_element",
-                   "rdfs:label":"substitution_element","value":"Mo","has_units":"None"},
+                   "rdfs:label":"substitution_element","value":"Mo","has_units":null},
                   {"@type":"ex:Atom",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substituted_elements",
-                   "rdfs:label":"substituted_elements","value":"['Fe', 'Fe']","has_units":"None"}
+                   "rdfs:label":"substituted_elements","value":"['Fe', 'Fe']","has_units":null}
                 ]
               }
             ]
@@ -118,10 +118,10 @@
                 "has_part": [
                   {"@type":"ex:SpaceGroup",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_space_group",
-                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":null},
                   {"@type":"ex:AnalysisSoftware",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_analysis_library",
-                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":null},
                   {"@type":"ex:InputParameter",
                    "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_analysis_precision",
                    "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
