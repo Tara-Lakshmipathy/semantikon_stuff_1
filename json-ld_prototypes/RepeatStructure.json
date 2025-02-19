@@ -13,12 +13,12 @@
     "has_part": "http://example.org/hasPart",
     "input_of": "http://example.org/inputOf"
   },
-      "@type": "ex.AtomisticSample",
+  "@type": "ex:AtomisticSample",
         "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass",
         "label": "structure_dataclass",
         "has_part": [
           {
-            "@type": "ex.SimulationCell",
+            "@type": "ex:SimulationCell",
             "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell",
             "label": "simulation_cell",
             "has_part": [
@@ -37,7 +37,7 @@
             ]
           },
           {
-            "@type": "ex.ChemicalSpecies",
+            "@type": "ex:ChemicalSpecies",
             "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__chemical_species",
             "label": "chemical_species",
             "has_part": [
@@ -50,7 +50,7 @@
             ]
           },
           {
-            "@type": "ex.UnitCell",
+            "@type": "ex:UnitCell",
             "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell",
             "label": "unit_cell",
             "has_part": [
@@ -81,18 +81,18 @@
             ]
           },
           {
-            "@type": "ex.CrystalDefect",
+            "@type": "ex:CrystalDefect",
             "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__crystal_defect",
             "label": "crystal_defect",
             "has_part": []
           },
           {
-            "@type": "ex.AnalysisProcess",
+            "@type": "ex:AnalysisProcess",
             "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis",
             "label": "analysis",
             "has_part": [
               {
-                "@type": "ex.SpaceGroupAnalysisAlgorithm",
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
                 "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0",
                 "label": "0",
                 "has_part": [
