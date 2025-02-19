@@ -1,0 +1,777 @@
+{
+  "@context": {
+    "precedes": "http://example.org/Precedes",
+    "has_input": "http://example.org/hasInput",
+    "has_output": "http://example.org/hasOutput",
+    "executes": "http://example.org/Executes",
+    "has_units": "http://qudt.org/schema/qudt/Unit",
+    "has_class": "http://example.org/hasPythonClass",
+    "has_input_port": "http://example.org/hasInputPort",
+    "has_output_port": "http://example.org/hasOutputPort",
+    "has_object": "http://example.org/hasPythonObject",
+    "has_software": "http://example.org/usesSoftware",
+    "has_part": "http://example.org/hasPart",
+    "input_of": "http://example.org/inputOf"
+  },
+  
+  "@type":"ex:StructureGenerationProcess",
+  "@id":"http://StructureGenerationProcess",
+  "has_input": [
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__pr_name","rdfs:label":"pr_name","rdf:value":"cdict","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__element", "rdfs:label":"element", "rdf:value":"Fe","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__bravais_lattice",
+     "rdfs:label":"bravais_lattice","rdf:value":"bcc","has_units": "None"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__a","rdfs:label":"a","rdf:value":"2.87","has_units":"ANGSTROM"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__c","rdfs:label":"c","rdf:value":"None","has_units":"ANGSTROM"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__cubic","rdfs:label":"cubic","value":"True","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_CreateStructure",
+    "label": "CreateStructure",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateStructure","label":"CreateStructure"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__pr_name","has_object": {"@id": "http://UserInput__pr_name"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__element", "has_object": {"@id": "http://UserInput__element"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__bravais_lattice","has_object": {"@id": "http://UserInput__bravais_lattice"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__a","has_object": {"@id": "http://UserInput__a"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__c","has_object": {"@id": "http://UserInput__c"}},
+      {"@type":"ex:InputPort","@id": "http://inp_CreateStructure__cubic","has_object": {"@id": "http://UserInput__cubic"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_CreateStructure__structure_dataclass",
+       "has_object": {"@id": "http://GeneratedOutput__CreateStructure__structure_dataclass"}}
+    ]
+  },
+  "has_output": [
+    {
+      "@type": "ex.AtomisticSample",
+      "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass",
+      "label": "structure_dataclass",
+      "has_part": [    
+        {
+            "@type": "ex:SimulationCell",
+            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__simulation_cell",
+            "label": "simulation_cell",
+            "has_part": [
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__simulation_cell__simulation_cell_lengths",
+               "rdfs:label":"simulation_cell_lengths","value":"[2.87, 2.87, 2.87]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__simulation_cell__simulation_cell_vectors",
+               "rdfs:label":"simulation_cell_vectors","value":"[array([2.87, 0.  , 0.  ]), array([0.  , 2.87, 0.  ]), array([0.  , 0.  , 2.87])]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__simulation_cell__simulation_cell_angles",
+               "rdfs:label":"simulation_cell_angles","value":"[90.0, 90.0, 90.0] ","has_units":"DEGREES"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__simulation_cell__simulation_cell_volume",
+               "rdfs:label":"simulation_cell_volume","value":23.6399,"has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:ChemicalSpecies",
+            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__chemical_species",
+            "label": "chemical_species",
+            "has_part": [
+              {"@type":"ex:Atoms",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__chemical_species__atoms",
+               "rdfs:label":"atoms","value":"[{'value': 2, 'label': 'Fe'}, {'value': 2, 'label': 'total_number_atoms'}] ","has_units":"None"},
+              {"@type":"ex:Molecules",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__chemical_species__molecules",
+               "rdfs:label":"molecules","value":"None","has_units":"None"}
+            ]
+          },
+          {
+            "@type": "ex:UnitCell",
+            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell",
+            "label": "unit_cell",
+            "has_part": [
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_parameter_a",
+               "rdfs:label":"lattice_parameter_a","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_parameter_b",
+               "rdfs:label":"lattice_parameter_b","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_parameter_c",
+               "rdfs:label":"lattice_parameter_c","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_angle_alpha",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_beta","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__lattice_volume",
+               "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__unit_cell__bravais_lattice",
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:CrystalDefect",
+            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__crystal_defect",
+            "label": "crystal_defect",
+            "has_part": []
+          },
+          {
+            "@type": "ex:AnalysisProcess",
+            "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__analysis",
+            "label": "analysis",
+            "has_part": [
+              {
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
+                "@id": "http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SpaceGroup",
+                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_space_group",
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                  {"@type":"ex:AnalysisSoftware",
+                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_analysis_library",
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                  {"@type":"ex:InputParameter",
+                   "@id":"http://GeneratedOutput__CreateStructure__structure_dataclass__analysis_0_analysis_precision",
+                   "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
+                ]
+              }
+            ]
+          }
+      ],
+      "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__x_repeat", "rdfs:label":"x_repeat", "rdf:value":3,"has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__y_repeat", "rdfs:label":"y_repeat", "rdf:value":3,"has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__z_repeat", "rdfs:label":"z_repeat", "rdf:value":3,"has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_RepeatStructure",
+    "label": "RepeatStructure",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.RepeatStructure","label":"RepeatStructure"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://RepeatStructure__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__CreateStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__x_repeat", "has_object": {"@id": "http://UserInput__x_repeat"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__y_repeat", "has_object": {"@id": "http://UserInput__y_repeat"}},
+      {"@type":"ex:InputPort","@id":"http://inp_RepeatStructure__z_repeat", "has_object": {"@id": "http://UserInput__z_repeat"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_RepeatStructure__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          {
+            "@type": "ex:SimulationCell",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell",
+            "label": "simulation_cell",
+            "has_part": [
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell__simulation_cell_lengths",
+               "rdfs:label":"simulation_cell_lengths","value":"[8.61, 8.61, 8.61]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell__simulation_cell_vectors",
+               "rdfs:label":"simulation_cell_vectors","value":"[array([8.61, 0.  , 0.  ]), array([0.  , 8.61, 0.  ]), array([0.  , 0.  , 8.61])]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell__simulation_cell_angles",
+               "rdfs:label":"simulation_cell_angles","value":"[90.0, 90.0, 90.0] ","has_units":"DEGREES"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__simulation_cell__simulation_cell_volume",
+               "rdfs:label":"simulation_cell_volume","value":638.2774,"has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:ChemicalSpecies",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__chemical_species",
+            "label": "chemical_species",
+            "has_part": [
+              {"@type":"ex:Atoms",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__chemical_species__atoms",
+               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":"None"},
+              {"@type":"ex:Molecules",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__chemical_species__molecules",
+               "rdfs:label":"molecules","value":"None","has_units":"None"}
+            ]
+          },
+          {
+            "@type": "ex:UnitCell",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell",
+            "label": "unit_cell",
+            "has_part": [
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_parameter_a",
+               "rdfs:label":"lattice_parameter_a","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_parameter_b",
+               "rdfs:label":"lattice_parameter_b","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_parameter_c",
+               "rdfs:label":"lattice_parameter_c","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_angle_alpha",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_beta","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__lattice_volume",
+               "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__unit_cell__bravais_lattice",
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:CrystalDefect",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__crystal_defect",
+            "label": "crystal_defect",
+            "has_part": []
+          },
+          {
+            "@type": "ex:AnalysisProcess",
+            "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis",
+            "label": "analysis",
+            "has_part": [
+              {
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
+                "@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SpaceGroup",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_space_group",
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                  {"@type":"ex:AnalysisSoftware",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_analysis_library",
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                  {"@type":"ex:InputParameter",
+                   "@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass__analysis_0_analysis_precision",
+                   "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
+                ]
+              }
+            ]
+          }
+        ],
+        "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess0",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__vacancy_indices", "rdfs:label":"vacancy_indices", 
+     "rdf:value":"0 3","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_CreateVacancy",
+    "label": "CreateVacancy",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateVacancy","label":"CreateVacancy"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://CreateVacancy__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_CreateVacancy__vacancy_indices", "has_object": {"@id": "http://UserInput__vacancy_indices"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_CreateVacancy__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+      "@type": "ex.AtomisticSample",
+        "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          {
+  "@context": {
+    "precedes": "http://example.org/Precedes",
+    "has_input": "http://example.org/hasInput",
+    "has_output": "http://example.org/hasOutput",
+    "executes": "http://example.org/Executes",
+    "has_units": "http://qudt.org/schema/qudt/Unit",
+    "has_class": "http://example.org/hasPythonClass",
+    "has_input_port": "http://example.org/hasInputPort",
+    "has_output_port": "http://example.org/hasOutputPort",
+    "has_object": "http://example.org/hasPythonObject",
+    "has_software": "http://example.org/usesSoftware",
+    "has_part": "http://example.org/hasPart",
+    "input_of": "http://example.org/inputOf"
+  },
+  "@type": "ex:AtomisticSample",
+        "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          {
+            "@type": "ex:SimulationCell",
+            "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__simulation_cell",
+            "label": "simulation_cell",
+            "has_part": [
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__simulation_cell__simulation_cell_lengths",
+               "rdfs:label":"simulation_cell_lengths","value":"[8.61, 8.61, 8.61]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__simulation_cell__simulation_cell_vectors",
+               "rdfs:label":"simulation_cell_vectors","value":"[array([8.61, 0.  , 0.  ]), array([0.  , 8.61, 0.  ]), array([0.  , 0.  , 8.61])]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__simulation_cell__simulation_cell_angles",
+               "rdfs:label":"simulation_cell_angles","value":"[90.0, 90.0, 90.0] ","has_units":"DEGREES"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__simulation_cell__simulation_cell_volume",
+               "rdfs:label":"simulation_cell_volume","value":638.2774,"has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:ChemicalSpecies",
+            "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__chemical_species",
+            "label": "chemical_species",
+            "has_part": [
+              {"@type":"ex:Atoms",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__chemical_species__atoms",
+               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":"None"},
+              {"@type":"ex:Molecules",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__chemical_species__molecules",
+               "rdfs:label":"molecules","value":"None","has_units":"None"}
+            ]
+          },
+          {
+            "@type": "ex:UnitCell",
+            "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell",
+            "label": "unit_cell",
+            "has_part": [
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_parameter_a",
+               "rdfs:label":"lattice_parameter_a","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_parameter_b",
+               "rdfs:label":"lattice_parameter_b","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_parameter_c",
+               "rdfs:label":"lattice_parameter_c","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_angle_alpha",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_beta","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__lattice_volume",
+               "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__unit_cell__bravais_lattice",
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:CrystalDefect",
+            "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__crystal_defect",
+            "label": "crystal_defect",
+            "has_part": [
+              {
+                "@type": "ex:Vacancy",
+                "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__crystal_defect_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:Vacancy",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__crystal_defect_0_vacancy_count",
+                   "rdfs:label":"vacancy_count","value":2,"has_units":"None"},
+                  {"@type":"ex:Position",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__crystal_defect_0_vacancy_positions",
+                   "rdfs:label":"vacancy_positions","value":"[array([0., 0., 0.]), array([1.435, 1.435, 4.305])]","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__crystal_defect_0_removed_elements",
+                   "rdfs:label":"removed_elements","value":"['Fe', 'Fe']","has_units":"None"}
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ex:AnalysisProcess",
+            "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__analysis",
+            "label": "analysis",
+            "has_part": [
+              {
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
+                "@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass__analysis_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SpaceGroup",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__analysis_0_space_group",
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                  {"@type":"ex:AnalysisSoftware",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__analysis_0_analysis_library",
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                  {"@type":"ex:InputParameter",
+                   "@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass__analysis_0_analysis_precision",
+                   "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
+                ]
+              }
+            ]
+          }
+        ]
+      
+}
+        ],
+        "input_of": [
+        {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess1",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species", "rdfs:label":"substitute_species", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom", "rdfs:label":"substitute_magmom", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices", "rdfs:label":"subs_indices", 
+     "rdf:value":"5 10","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_SubstituteImpurity",
+    "label": "SubstituteImpurity",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://SubstituteImpurity__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__substitute_species", 
+       "has_object": {"@id": "http://UserInput__substitute_species"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__subs_indices", 
+       "has_object": {"@id": "http://UserInput__substitute_magmom"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity__substitute_magmom", 
+       "has_object": {"@id": "http://UserInput__subs_indices"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_SubstituteImpurity__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+        "@type": "ex:AtomisticSample",
+        "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          {
+            "@type": "ex:SimulationCell",
+            "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__simulation_cell",
+            "label": "simulation_cell",
+            "has_part": [
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__simulation_cell__simulation_cell_lengths",
+               "rdfs:label":"simulation_cell_lengths","value":"[8.61, 8.61, 8.61]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__simulation_cell__simulation_cell_vectors",
+               "rdfs:label":"simulation_cell_vectors","value":"[array([8.61, 0.  , 0.  ]), array([0.  , 8.61, 0.  ]), array([0.  , 0.  , 8.61])]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__simulation_cell__simulation_cell_angles",
+               "rdfs:label":"simulation_cell_angles","value":"[90.0, 90.0, 90.0] ","has_units":"DEGREES"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__simulation_cell__simulation_cell_volume",
+               "rdfs:label":"simulation_cell_volume","value":638.2774,"has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:ChemicalSpecies",
+            "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__chemical_species",
+            "label": "chemical_species",
+            "has_part": [
+              {"@type":"ex:Atoms",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__chemical_species__atoms",
+               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":"None"},
+              {"@type":"ex:Molecules",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__chemical_species__molecules",
+               "rdfs:label":"molecules","value":"None","has_units":"None"}
+            ]
+          },
+          {
+            "@type": "ex:UnitCell",
+            "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell",
+            "label": "unit_cell",
+            "has_part": [
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_parameter_a",
+               "rdfs:label":"lattice_parameter_a","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_parameter_b",
+               "rdfs:label":"lattice_parameter_b","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_parameter_c",
+               "rdfs:label":"lattice_parameter_c","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_angle_alpha",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_beta","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__lattice_volume",
+               "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__unit_cell__bravais_lattice",
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:CrystalDefect",
+            "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect",
+            "label": "crystal_defect",
+            "has_part": [
+              {
+                "@type": "ex:Vacancy",
+                "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:Vacancy",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_0_vacancy_count",
+                   "rdfs:label":"vacancy_count","value":2,"has_units":"None"},
+                  {"@type":"ex:Position",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_0_vacancy_positions",
+                   "rdfs:label":"vacancy_positions","value":"[array([0., 0., 0.]), array([1.435, 1.435, 4.305])]","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_0_removed_elements",
+                   "rdfs:label":"removed_elements","value":"['Fe', 'Fe']","has_units":"None"}
+                ]
+              },
+              {
+                "@type": "ex:SubstitutionalImpurity",
+                "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_1",
+                "label": "1",
+                "has_part": [
+                  {"@type":"ex:SubstitutionalImpurity",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_1_substitution_count",
+                   "rdfs:label":"substitution_count","value":2,"has_units":"None"},
+                  {"@type":"ex:Position",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_1_substitution_positions",
+                   "rdfs:label":"substitution_positions","value":"[array([1.435, 4.305, 1.435]), array([0.  , 5.74, 0.  ])]","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_1_substitution_element",
+                   "rdfs:label":"substitution_element","value":"Mo","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__crystal_defect_1_substituted_elements",
+                   "rdfs:label":"substituted_elements","value":"['Fe', 'Fe']","has_units":"None"}
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ex:AnalysisProcess",
+            "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__analysis",
+            "label": "analysis",
+            "has_part": [
+              {
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
+                "@id": "http://GeneratedOutput__SubstituteImpurity__structure_dataclass__analysis_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SpaceGroup",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__analysis_0_space_group",
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                  {"@type":"ex:AnalysisSoftware",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__analysis_0_analysis_library",
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                  {"@type":"ex:InputParameter",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity__structure_dataclass__analysis_0_analysis_precision",
+                   "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+          }
+        ]
+      }
+    ],
+          "precedes": {"@id":"http://StructureManipulationProcess1"}
+          },
+          {
+  "@type":"ex:StructureManipulationProcess",
+  "@id":"http://StructureManipulationProcess2",
+  "has_input": [
+    {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species0", "rdfs:label":"substitute_species", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom0", "rdfs:label":"substitute_magmom", 
+     "rdf:value":"Mo","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices0", "rdfs:label":"subs_indices", 
+     "rdf:value":"5 10","has_units":"None"}
+  ],
+  "executes": {
+    "@type":"ex:Node",
+    "@id":"http://concept_dict_wf_SubstituteImpurity0",
+    "label": "SubstituteImpurity0",
+    "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
+    "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "has_input_port": [
+      {"@type":"ex:InputPort","@id":"http://SubstituteImpurity0__structure_dataclass",
+       "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__substitute_species", 
+       "has_object": {"@id": "http://UserInput__substitute_species0"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__subs_indices", 
+       "has_object": {"@id": "http://UserInput__substitute_magmom0"}},
+      {"@type":"ex:InputPort","@id":"http://inp_SubstituteImpurity0__substitute_magmom", 
+       "has_object": {"@id": "http://UserInput__subs_indices0"}}
+    ],
+    "has_output_port": [
+      {"@type":"ex:OutputPort","@id": "http://out_SubstituteImpurity0__structure_dataclass","has_object": {"@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass"}}
+    ]
+  },
+    "has_output": [
+      {
+        "@type": "ex:AtomisticSample",
+        "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass",
+        "label": "structure_dataclass",
+        "has_part": [
+          {
+            "@type": "ex:SimulationCell",
+            "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__simulation_cell",
+            "label": "simulation_cell",
+            "has_part": [
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__simulation_cell__simulation_cell_lengths",
+               "rdfs:label":"simulation_cell_lengths","value":"[8.61, 8.61, 8.61]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__simulation_cell__simulation_cell_vectors",
+               "rdfs:label":"simulation_cell_vectors","value":"[array([8.61, 0.  , 0.  ]), array([0.  , 8.61, 0.  ]), array([0.  , 0.  , 8.61])]","has_units":"ANGSTROM"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__simulation_cell__simulation_cell_angles",
+               "rdfs:label":"simulation_cell_angles","value":"[90.0, 90.0, 90.0] ","has_units":"DEGREES"},
+              {"@type":"ex:Length",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__simulation_cell__simulation_cell_volume",
+               "rdfs:label":"simulation_cell_volume","value":638.2774,"has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:ChemicalSpecies",
+            "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__chemical_species",
+            "label": "chemical_species",
+            "has_part": [
+              {"@type":"ex:Atoms",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__chemical_species__atoms",
+               "rdfs:label":"atoms","value":"[{'value': 54, 'label': 'Fe'}, {'value': 54, 'label': 'total_number_atoms'}] ","has_units":"None"},
+              {"@type":"ex:Molecules",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__chemical_species__molecules",
+               "rdfs:label":"molecules","value":"None","has_units":"None"}
+            ]
+          },
+          {
+            "@type": "ex:UnitCell",
+            "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell",
+            "label": "unit_cell",
+            "has_part": [
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_parameter_a",
+               "rdfs:label":"lattice_parameter_a","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_parameter_b",
+               "rdfs:label":"lattice_parameter_b","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeParameter",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_parameter_c",
+               "rdfs:label":"lattice_parameter_c","value":2.87,"has_units":"ANGSTROM"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_angle_alpha",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_alpha","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeAngle",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_angle_beta",
+               "rdfs:label":"lattice_angle_beta","value":90.0,"has_units":"DEGREES"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__lattice_volume",
+               "rdfs:label":"lattice_volume","value":23.6399,"has_units":"ANGSTROM3"},
+              {"@type":"ex:LatticeVolume",
+               "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__unit_cell__bravais_lattice",
+               "rdfs:label":"bravais_lattice","value":"bcc","has_units":"ANGSTROM3"}
+            ]
+          },
+          {
+            "@type": "ex:CrystalDefect",
+            "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect",
+            "label": "crystal_defect",
+            "has_part": [
+              {
+                "@type": "ex:SubstitutionalImpurity",
+                "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SubstitutionalImpurity",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_count",
+                   "rdfs:label":"substitution_count","value":2,"has_units":"None"},
+                  {"@type":"ex:Position",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_positions",
+                   "rdfs:label":"substitution_positions","value":"[array([1.435, 1.435, 7.175]), array([0.  , 2.87, 5.74])]","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substitution_element",
+                   "rdfs:label":"substitution_element","value":"Mo","has_units":"None"},
+                  {"@type":"ex:Atom",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0_substituted_elements",
+                   "rdfs:label":"substituted_elements","value":"['Fe', 'Fe']","has_units":"None"}
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ex:AnalysisProcess",
+            "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis",
+            "label": "analysis",
+            "has_part": [
+              {
+                "@type": "ex:SpaceGroupAnalysisAlgorithm",
+                "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0",
+                "label": "0",
+                "has_part": [
+                  {"@type":"ex:SpaceGroup",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_space_group",
+                   "rdfs:label":"space_group","value":"Im-3m","has_units":"None"},
+                  {"@type":"ex:AnalysisSoftware",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_analysis_library",
+                   "rdfs:label":"analysis_software","value":"spglib","has_units":"None"},
+                  {"@type":"ex:InputParameter",
+                   "@id":"http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__analysis_0_analysis_precision",
+                   "rdfs:label":"analyis_precision","value":1e-05,"has_units":"ANGSTROM"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+          }
+        ]
+      }
+    ],
+          "precedes": [{"@id":"http://StructureManipulationProcess0"},{"@id":"http://StructureManipulationProcess2"}]
+          }
+        ]
+      }
+    ],
+  "precedes": {"@id":"http://StructureManipulationProcess"}
+}
