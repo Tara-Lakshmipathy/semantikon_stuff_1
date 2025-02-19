@@ -22,22 +22,22 @@
   "has_execution_details": {
     "@type": "rdf:Bag",
     "has_item": [
-    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":"None"},
-    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":"None"},
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":null},
     	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
-    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":"None"},
-    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":"None"},
-    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":"None"}
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":null},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":null},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":null}
     ]
   },
   "has_input": [
-    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__pr_name","rdfs:label":"pr_name","rdf:value":"cdict","has_units":"None"},
-    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__element", "rdfs:label":"element", "rdf:value":"Fe","has_units":"None"},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__pr_name","rdfs:label":"pr_name","rdf:value":"cdict","has_units":null},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__element", "rdfs:label":"element", "rdf:value":"Fe","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__bravais_lattice",
-     "rdfs:label":"bravais_lattice","rdf:value":"bcc","has_units": "None"},
+     "rdfs:label":"bravais_lattice","rdf:value":"bcc","has_units": null},
     {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__a","rdfs:label":"a","rdf:value":"2.87","has_units":"ANGSTROM"},
-    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__c","rdfs:label":"c","rdf:value":"None","has_units":"ANGSTROM"},
-    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__cubic","rdfs:label":"cubic","value":"True","has_units":"None"}
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__c","rdfs:label":"c","rdf:value":null,"has_units":"ANGSTROM"},
+    {"@type":"ex:WorkflowUserInput","@id": "http://UserInput__cubic","rdfs:label":"cubic","value":"True","has_units":null}
   ],
   "executes": {
     "@type":"ex:Node",
@@ -70,10 +70,10 @@
   "@id":"http://StructureManipulationProcess",
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateStructure__structure_dataclass",
-     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
-    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__x_repeat", "rdfs:label":"x_repeat", "rdf:value":3,"has_units":"None"},
-    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__y_repeat", "rdfs:label":"y_repeat", "rdf:value":3,"has_units":"None"},
-    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__z_repeat", "rdfs:label":"z_repeat", "rdf:value":3,"has_units":"None"}
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__x_repeat", "rdfs:label":"x_repeat", "rdf:value":3,"has_units":null},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__y_repeat", "rdfs:label":"y_repeat", "rdf:value":3,"has_units":null},
+    {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__z_repeat", "rdfs:label":"z_repeat", "rdf:value":3,"has_units":null}
   ],
   "executes": {
     "@type":"ex:Node",
@@ -104,9 +104,9 @@
   "@id":"http://StructureManipulationProcess0",
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
-     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__vacancy_indices", "rdfs:label":"vacancy_indices", 
-     "rdf:value":"0 3","has_units":"None"}
+     "rdf:value":"0 3","has_units":null}
   ],
   "executes": {
     "@type":"ex:Node",
@@ -135,13 +135,13 @@
   "@id":"http://StructureManipulationProcess1",
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__CreateVacancy__structure_dataclass",
-     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species", "rdfs:label":"substitute_species", 
-     "rdf:value":"Mo","has_units":"None"},
+     "rdf:value":"Mo","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom", "rdfs:label":"substitute_magmom", 
-     "rdf:value":"Mo","has_units":"None"},
+     "rdf:value":"Mo","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices", "rdfs:label":"subs_indices", 
-     "rdf:value":"5 10","has_units":"None"}
+     "rdf:value":"5 10","has_units":null}
   ],
   "executes": {
     "@type":"ex:Node",
@@ -182,13 +182,13 @@
   "@id":"http://StructureManipulationProcess2",
   "has_input": [
     {"@type":"ex:AtomisticSample","@id":"http://GeneratedOutput__RepeatStructure__structure_dataclass",
-     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":"None"},
+     "rdfs:label":"structure_dataclass","rdf:value":"AtomisticSample","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_species0", "rdfs:label":"substitute_species", 
-     "rdf:value":"Mo","has_units":"None"},
+     "rdf:value":"Mo","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__substitute_magmom0", "rdfs:label":"substitute_magmom", 
-     "rdf:value":"Mo","has_units":"None"},
+     "rdf:value":"Mo","has_units":null},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__subs_indices0", "rdfs:label":"subs_indices", 
-     "rdf:value":"5 10","has_units":"None"}
+     "rdf:value":"5 10","has_units":null}
   ],
   "executes": {
     "@type":"ex:Node",
