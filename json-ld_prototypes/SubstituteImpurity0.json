@@ -86,7 +86,7 @@
             "label": "crystal_defect",
             "has_part": [
               {
-                "@type": "ex.SubstitutionalImpurity",
+                "@type": "ex:SubstitutionalImpurity",
                 "@id": "http://GeneratedOutput__SubstituteImpurity0__structure_dataclass__crystal_defect_0",
                 "label": "0",
                 "has_part": [
