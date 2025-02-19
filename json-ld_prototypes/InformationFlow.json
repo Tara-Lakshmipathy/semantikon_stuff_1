@@ -11,11 +11,25 @@
     "has_object": "http://example.org/hasPythonObject",
     "has_software": "http://example.org/usesSoftware",
     "has_part": "http://example.org/hasPart",
-    "input_of": "http://example.org/inputOf"
+    "input_of": "http://example.org/inputOf",
+    "has_execution_details": "http://example.org/hasExecutionDetails",
+    "has_item": "rdfs:member",
+    "used_in_workflow": "http://example.org/isPartofWorkflow"
   },
   
   "@type":"ex:StructureGenerationProcess",
   "@id":"http://StructureGenerationProcess",
+  "has_execution_details": {
+    "@type": "rdf:Bag",
+    "has_item": [
+    	{"@type":"ex:StartTimestamp", "rdfs:label":"start_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":"None"},
+    	{"@type":"ex:StopTimestamp", "rdfs:label":"stop_time","rdf:value":"xxxx-xx-xx  xx:xx:xx","has_units":"None"},
+    	{"@type":"ex:WallTime", "rdfs:label":"sim_coretime_hours","rdf:value":0.00056,"has_units":"HOURS"},
+    	{"@type":"ex:NumberofCores", "rdfs:label":"number_cores","rdf:value":1,"has_units":"None"},
+    	{"@type":"ex:ComputingDevice", "rdfs:label":"host","rdf:value":"VDI0107.zit.bam.de","has_units":"None"},
+    	{"@type":"ex:ExitCode", "rdfs:label":"status","rdf:value":0,"has_units":"None"}
+    ]
+  },
   "has_input": [
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__pr_name","rdfs:label":"pr_name","rdf:value":"cdict","has_units":"None"},
     {"@type":"ex:WorkflowUserInput","@id":"http://UserInput__element", "rdfs:label":"element", "rdf:value":"Fe","has_units":"None"},
@@ -31,6 +45,7 @@
     "label": "CreateStructure",
     "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateStructure","label":"CreateStructure"},
     "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "used_in_workflow": {"@id":"http://concept_dict_wf"},
     "has_input_port": [
       {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__pr_name","has_object": {"@id": "http://UserInput__pr_name"}},
       {"@type":"ex:InputPort","@id":"http://inp_CreateStructure__element", "has_object": {"@id": "http://UserInput__element"}},
@@ -66,6 +81,7 @@
     "label": "RepeatStructure",
     "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.RepeatStructure","label":"RepeatStructure"},
     "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "used_in_workflow": {"@id":"http://concept_dict_wf"},
     "has_input_port": [
       {"@type":"ex:InputPort","@id":"http://RepeatStructure__structure_dataclass",
        "object": {"@id": "http://GeneratedOutput__CreateStructure__structure_dataclass"}},
@@ -98,6 +114,7 @@
     "label": "CreateVacancy",
     "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.CreateVacancy","label":"CreateVacancy"},
     "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "used_in_workflow": {"@id":"http://concept_dict_wf"},
     "has_input_port": [
       {"@type":"ex:InputPort","@id":"http://CreateVacancy__structure_dataclass",
        "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
@@ -132,6 +149,7 @@
     "label": "SubstituteImpurity",
     "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
     "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "used_in_workflow": {"@id":"http://concept_dict_wf"},
     "has_input_port": [
       {"@type":"ex:InputPort","@id":"http://SubstituteImpurity__structure_dataclass",
        "object": {"@id": "http://GeneratedOutput__CreateVacancy__structure_dataclass"}},
@@ -178,6 +196,7 @@
     "label": "SubstituteImpurity0",
     "has_class": {"@type":"pyiron_node","@id":"http://pyiron_nodes.SubstituteImpurity","label":"SubstituteImpurity"},
     "has_software": {"@type":"python_library","@id":"http://pyiron_atomistics","label":"pyiron_atomistics 0.6.14"},
+    "used_in_workflow": {"@id":"http://concept_dict_wf"},
     "has_input_port": [
       {"@type":"ex:InputPort","@id":"http://SubstituteImpurity0__structure_dataclass",
        "object": {"@id": "http://GeneratedOutput__RepeatStructure__structure_dataclass"}},
