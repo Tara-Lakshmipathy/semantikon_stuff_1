@@ -19,20 +19,20 @@ class AtomisticSample:
     analysis: u(list, label="analysis", uri=onto.AnalysingProcess) = None
     provenance_objects: u(list, uri=onto.InformationContentEntity) = None
 
-    @dataclass
-    class SampleSimulationCell:
-        simulation_cell_lengths: u(np.ndarray, units="ANGSTROM", label="simulation_cell_lengths", uri=onto.Length) = None
-        simulation_cell_vectors: u(np.ndarray, units="ANGSTROM", label="simulation_cell_vectors", uri=onto.SimulationCellVector) = None
-        simulation_cell_angles: u(np.ndarray, units="DEGREES", label="simulation_cell_angles", uri=onto.SimulationCellAngle) = None
-        simulation_cell_volume: u(float, units="ANGSTROM3", label="simulation_cell_volume", uri=onto.SimulationCellVolume) = None
+@dataclass
+class SampleSimulationCell:
+    simulation_cell_lengths: u(np.ndarray, units="ANGSTROM", label="simulation_cell_lengths", uri=onto.Length) = None
+    simulation_cell_vectors: u(np.ndarray, units="ANGSTROM", label="simulation_cell_vectors", uri=onto.SimulationCellVector) = None
+    simulation_cell_angles: u(np.ndarray, units="DEGREES", label="simulation_cell_angles", uri=onto.SimulationCellAngle) = None
+    simulation_cell_volume: u(float, units="ANGSTROM3", label="simulation_cell_volume", uri=onto.SimulationCellVolume) = None
 
-    @dataclass
-    class SampleChemicalSpecies:
-        atoms: u(list|str, label="atoms", uri=onto.Atom) = None
-        molecules: u(dict, label="molecules", uri=onto.Molecule) = None
+@dataclass
+class SampleChemicalSpecies:
+    atoms: u(list|str, label="atoms", uri=onto.Atom) = None
+    molecules: u(dict, label="molecules", uri=onto.Molecule) = None
 
-    @dataclass
-    class SampleUnitCell:
+@dataclass
+class SampleUnitCell:
         lattice_parameter_a: u(Optional[int|float], units="ANGSTROM", label="lattice_parameter_a", uri=onto.LatticeParameter) = None
         lattice_parameter_b: u(Optional[int|float], units="ANGSTROM", label="lattice_parameter_b", uri=onto.LatticeParameter) = None
         lattice_parameter_c: u(Optional[int|float], units="ANGSTROM", label="lattice_parameter_c", uri=onto.LatticeParameter) = None
@@ -42,12 +42,12 @@ class AtomisticSample:
         lattice_volume: u(float, units="ANGSTROM3", label="lattice_volume", uri=onto.LatticeVolume) = None
         bravais_lattice: u(str, label="bravais_lattice", uri=onto.BravaisLattice) = None
 
-    @dataclass
-    @u(label="space_group_analysis", uri=onto.SpaceGroupAnalysingAlgorithm)
-    class SpaceGroupAnalysis:
-        space_group: u(str, label="space_group", uri=onto.SpaceGroup) = None
-        analysis_libraray: u(str, label="analysis_libraray", uri=onto.Software) = None
-        analysis_precision: u(float, units="ANGSTROM", label="analysis_precision", uri=onto.InputParameter) = None
+@dataclass
+@u(label="space_group_analysis", uri=onto.SpaceGroupAnalysingAlgorithm)
+class SpaceGroupAnalysis:
+    space_group: u(str, label="space_group", uri=onto.SpaceGroup) = None
+    analysis_libraray: u(str, label="analysis_libraray", uri=onto.Software) = None
+    analysis_precision: u(float, units="ANGSTROM", label="analysis_precision", uri=onto.InputParameter) = None
 
 @as_function_node("structure_dataclass")
 @u(uri=onto.StructureCreationNode)
@@ -74,34 +74,34 @@ def populate_cdict_create_structure_node(structure, bravais_lattice):
 
     structure_dataclass = AtomisticSample(class_object=structure)
 
-    sim_cell_dataclass = AtomisticSample.SampleSimulationCell()
+    sim_cell_dataclass = SampleSimulationCell()
     parse_sim_cell(sim_cell_dataclass, structure)
     structure_dataclass.simulation_cell = sim_cell_dataclass
 
-    chem_species_dataclass = AtomisticSample.SampleChemicalSpecies()
+    chem_species_dataclass = SampleChemicalSpecies()
     parse_chem_species_atoms(chem_species_dataclass, structure)
     structure_dataclass.chemical_species = chem_species_dataclass
 
-    unit_cell_dataclass = AtomisticSample.SampleUnitCell()
+    unit_cell_dataclass = SampleUnitCell()
     parse_unit_cell(unit_cell_dataclass, structure, bravais_lattice)
     structure_dataclass.unit_cell = unit_cell_dataclass
 
     structure_dataclass.crystal_defect = []
 
-    space_group_dataclass = AtomisticSample.SpaceGroupAnalysis()
+    space_group_dataclass = SpaceGroupAnalysis()
     parse_space_group_spglib(space_group_dataclass, structure)
     structure_dataclass.analysis = []
     structure_dataclass.analysis.append(space_group_dataclass)    
 
     return structure_dataclass
 
-def parse_sim_cell(dc: AtomisticSample.SampleSimulationCell, structure:Atoms):
+def parse_sim_cell(dc: SampleSimulationCell, structure:Atoms):
     dc.simulation_cell_lengths=[np.round(structure.cell.cellpar()[0],4),np.round(structure.cell.cellpar()[1],4),np.round(structure.cell.cellpar()[2],4)]
     dc.simulation_cell_vectors=[np.round(structure.cell[0],4),np.round(structure.cell[1],4),np.round(structure.cell[2],4)]
     dc.simulation_cell_angles=[np.round(structure.cell.cellpar()[3],4),np.round(structure.cell.cellpar()[4],4),np.round(structure.cell.cellpar()[5],4)]
     dc.simulation_cell_volume=np.round(structure.get_volume(),4)
 
-def parse_chem_species_atoms(dc: AtomisticSample.SampleChemicalSpecies, structure:Atoms):
+def parse_chem_species_atoms(dc: SampleChemicalSpecies, structure:Atoms):
     natoms = structure.get_number_of_atoms()
     species_dict = dict(structure.get_number_species_atoms())
     atoms_list = []
@@ -176,7 +176,7 @@ def get_unit_cell_parameters(structure, bravais_lattice):
 
     return structure_parameters
 
-def parse_unit_cell(dc: AtomisticSample.SampleUnitCell, structure:Atoms, bravais_lattice:str):
+def parse_unit_cell(dc: SampleUnitCell, structure:Atoms, bravais_lattice:str):
     structure_parameters = get_unit_cell_parameters(structure, bravais_lattice)
     dc.lattice_parameter_a=structure_parameters['a']
     if 'b' not in structure_parameters.keys(): 
@@ -193,7 +193,7 @@ def parse_unit_cell(dc: AtomisticSample.SampleUnitCell, structure:Atoms, bravais
     dc.lattice_volume=structure_parameters['volume']
     dc.bravais_lattice=structure_parameters['bravais_lattice']
 
-def parse_space_group_spglib(dc: AtomisticSample.SpaceGroupAnalysis, structure:Atoms):
+def parse_space_group_spglib(dc: SpaceGroupAnalysis, structure:Atoms):
     from inspect import signature
     dc.space_group = structure.get_symmetry().spacegroup['InternationalTableSymbol']
     dc.analysis_libraray = "spglib"

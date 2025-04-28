@@ -23,7 +23,10 @@ def parse_subdataclass(field_object, nesting_level):
         print((nesting_level+1)*'  ' + 'sub_field_name:\033[94m', item[0], '\x1b[0m')
         print((nesting_level+1)*'  ' + 'uri:\033[95m', meta_to_dict(item[1])['uri']().IRI, '\x1b[0m')
         print((nesting_level+1)*'  ' + 'value: \033[94m', item[2], '\x1b[0m')
-        print((nesting_level+1)*'  ' + 'units:\033[95m', meta_to_dict(item[1])['units'], '\x1b[0m')
+        try:
+            print((nesting_level+1)*'  ' + 'units:\033[95m', meta_to_dict(item[1])['units'], '\x1b[0m')
+        except:
+            print((nesting_level+1)*'  ' + 'units:\033[95m', None, '\x1b[0m')
         print((nesting_level+1)*'  ' + 'data_type: \033[94m', type(item[2]).__name__, '\x1b[0m')
         print(nesting_level*'  ' + '}')
     
@@ -41,7 +44,10 @@ def DCViz(dc):
         print('    field_name:\033[94m', field.name, '\x1b[0m')
         print('    uri:\033[95m', meta_to_dict(field.type)['uri']().IRI, '\x1b[0m')
         print('    value:\033[94m python id', id(field_object), '\x1b[0m')
-        print('    units:\033[95m', meta_to_dict(field.type)['units'], '\x1b[0m')
+        try:
+            print('    units:\033[95m', meta_to_dict(field.type)['units'], '\x1b[0m')
+        except:
+            print('    units:\033[95m', None, '\x1b[0m')
         print('    data_type: \033[94m', type(field_object).__name__, '\x1b[0m')
         print('  }')
         try:

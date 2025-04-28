@@ -5,7 +5,7 @@ from semantics import onto
 
 @as_function_node("result")
 def RestrictedNode(
-    inp1: u(object, class_restrictions=[("crystal_defect", "type", "any", onto.Vacancy)], value_restrictions=[]), 
+    inp1: u(object, class_restrictions=[("crystal_defect", "type", "all", onto.PointDefect)], value_restrictions=[]), 
     inp2: u(object, value_restrictions=[("unit_cell", "bravais_lattice", "bcc")])
 ):
 
